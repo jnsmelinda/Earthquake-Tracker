@@ -20,5 +20,14 @@ function collectData(features) {
         const time = moment(element.properties.time).format("LLL");
         quakes.push({place: place, coords: coords, mag: mag, time: time});
     }
-    console.log(quakes);
+    console.log(getCoordinates(quakes));
+}
+
+function getCoordinates() {
+    coords = [];
+    for (let i = 0; i < quakes.length; i++) {
+        coords.push(quakes[i].coords);
+    }
+
+    return coords;
 }
