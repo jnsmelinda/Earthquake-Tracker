@@ -20,11 +20,18 @@ How to merge your branch:
 7.) You have to merge so then master has the most up to date. (If you have changes even spaces will cause issues)
 8.) After it's been approved/whatever then you don't need u origin branchname
 
-How to Fix a Conflict
-1.) Git pull origin master
-2.) Go to your file in visual studio to see issues
-3.) Validate changes and which one should be kept
-4.) Git add -A
-5.) Git commit - m "fixing conflicts on blah"
-6.) Go to github > files change
-7.) Merge files
+How to Push to branch
+1.) Git add .
+2.) Git commit -m "message"
+3.) Git pull origin master
+4.) If no issues go to step 6
+5.) If issues go to step 9
+6.) Git pull origin branchname
+7.) If no issues go to step 12
+8.) If issues go to step 9
+9.) Go to your file in visual studio to see issues
+10.) Validate changes and which one should be kept
+11.) Repeat step 1.
+12.) Git push origin "branch name"
+13.) Go to github > files change
+14.) Merge files
