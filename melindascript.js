@@ -3,7 +3,7 @@ const quakesBySearch = [];
 
 $(document).ready(
     getdailyQuakes(),
-    placeToCordinates("seattle")
+    // placeToCordinates("seattle")
 );
 
 function getdailyQuakes() {
@@ -22,8 +22,7 @@ function collectData(features, array) {
         const time = moment(element.properties.time).format("LLL");
         array.push({ place: place, coords: coords, mag: mag, time: time });
     }
-    // console.log(getCoordinates(array));
-    renderPastHourQuakes(array);
+    renderPastHourQuakes(array.slice(0, 5));
 }
 
 function renderPastHourQuakes(array) {
