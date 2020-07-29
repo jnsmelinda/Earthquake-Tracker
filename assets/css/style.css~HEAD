@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Faster+One&family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Faster+One&family=Lexend+Exa&family=Rubik+Mono+One&display=swap');
+* {
+    box-sizing: border-box;
+  }
+
+h1{
+    text-align: center;
+    font-family: 'Faster One', cursive;
+    font-size: 100px;
+    background-color: rgb(215, 252, 251);
+    padding: 50px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 40px;
+}
+.lastFive {
+    text-align: center;
+    font-size: x-large;
+    font-family: 'Lexend Exa', sans-serif;
+    border-style: solid;
+    border-color: rgb(219, 134, 134);
+    padding: 50px;
+    font-size: 20px;
+}
+
+.quakeQuery {
+    text-align: center;
+    font-family: 'Lexend Exa', sans-serif;
+    padding: 50px;
+    font-size: 20px;
+    /* border-style: solid;
+    border-color: rgb(219, 134, 134); */
+    background-color: rgb(215, 252, 251);
+}
+
+.latest {
+    font-size: 15px;
+}
+
+.row {
+    display:grid;
+    grid-template-columns: 70% 30%;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+}
+/* Map formmatting, feel free to change */
+#map {
+    height: 100%;
+    border: rgb(219,134,134);
+    border-style: solid;
+
+}
+
+html, body {
+    height: 50%;
+    margin: 10px;
+    padding: 5px;
+    border: 30px;
+
+}
