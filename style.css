@@ -17,4 +17,8 @@ h1{
     text-align: center;
     font-size: x-large;
     font-family: 'Lexend Exa', sans-serif;
-}   
+}
+
+.latest {
+    font-size: 15px;
+}
