@@ -1,43 +1,109 @@
 @import url('https://fonts.googleapis.com/css2?family=Faster+One&family=Rubik+Mono+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Faster+One&family=Lexend+Exa&family=Rubik+Mono+One&display=swap');
-* {
-    box-sizing: border-box;
-  }
+
 
 h1{
     text-align: center;
-    font-family: 'Faster One', cursive;
-    font-size: 100px;
+    font:100px 'Faster One', cursive;
     background-color: rgb(215, 252, 251);
     padding: 50px;
     margin: 0;
+    box-shadow: lightgrey;
 }
 
 h2 {
+    text-align: center;
     font-size: 40px;
+    line-height: 1px;
+    color:  rgb(121, 158, 157);
+    vertical-align: text-top;
+}
+
+h3 {
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: lightgrey;
+    font-size: xx-large;
+    padding: 5px;
+    vertical-align: text-top;
+}
+
+h4 {
+    text-align: center;
+    margin-bottom: 80px;
+    font: xx-large;
+}
+
+#textboxid {
+    height: 40px;
+    width: 400px;
+    font: 14px 'Lexend Exa', sans-serif;
+}
+
+#dateid {
+    height: 40px;
+    width: 400px;
+    font: 14px 'Lexend Exa', sans-serif;
 }
 .lastFive {
     text-align: center;
     font-size: x-large;
-    font-family: 'Lexend Exa', sans-serif;
-    border-style: solid;
-    border-color: rgb(219, 134, 134);
-    padding: 50px;
+    text-shadow: 2px 2px 7px lightgrey;
+    border: solid rgb(219, 134, 134);
+    padding: 5px;
     font-size: 20px;
 }
 
-.quakeQuery {
+.button {
+    position: relative;
+    background-color: #b3c0b4;
+    border: none;
+    font-size: 18px;
+    color: rgb(242, 254, 254);
+    padding: 1px;
+    width: 100px;
+    height: 40px;
     text-align: center;
-    font-family: 'Lexend Exa', sans-serif;
-    padding: 50px;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .button:after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+  }
+  
+  .button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+
+.quakeQuery {
+    text-align: left;
+    padding: 20px;
     font-size: 20px;
     /* border-style: solid;
     border-color: rgb(219, 134, 134); */
     background-color: rgb(215, 252, 251);
+    box-sizing: border-box;
 }
+
 
 .latest {
     font-size: 15px;
+    text-align: left;
 }
 
 .row {
@@ -59,5 +125,6 @@ html, body {
     margin: 10px;
     padding: 5px;
     border: 30px;
+    font-family: 'Lexend Exa', sans-serif;
 
 }
