@@ -25,7 +25,7 @@
     </div>
     <div class="quakeQuery">
         <h3>Did you feel that?</h3>
-        <h4>Learn more about the most recent earthquake, anywhere!</h4>
+        <h4>Learn more about earthquakes anywhere in the United States!</h4>
         <p>Enter a Location</p>
         <input type="text" id="textboxid" placeholder="Location">
         <p>When did it happen?</p>
@@ -35,7 +35,15 @@
         <input type="number" id="textboxid" placeholder="Radius in km">
         <button class="button">Search</button>
     </div>
-    <div id="map"></div>
+    <div class="quakeResults">
+        <div id="locationResults"></div>
+        <div id="map"></div>
+        <div class="row">
+            <div class="col-6" id="magResults">Magnitude </div>
+            <div class="col-6" id="timeResults">Time </div>
+        </div>
+    </div>
+
 </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment-with-locales.min.js"></script>
