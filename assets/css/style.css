@@ -100,9 +100,6 @@ h4 {
     box-sizing: border-box;
 }
 
-.quakeResults {
-    height: 150%;
-}
 
 .latest {
     font-size: 15px;
@@ -117,7 +114,7 @@ h4 {
 }
 /* Map formmatting, feel free to change */
 #map {
-    height: 100%;
+    height: 500px;
     border: rgb(219,134,134);
     border-style: solid;
 
