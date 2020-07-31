@@ -1,11 +1,9 @@
-let lastHourQuakes = [];
-let quakesBySearch = [];
+$(document).ready(getdailyQuakes);
+document.addEventListener('dailyQuakes', renderPastHourQuakes, false);
+document.addEventListener('quakesBySearch', renderQuakesBySearch, false);
 
-$(document).ready(
-    getdailyQuakes()
-);
+$("#search").on("click", function(event) {
 
-$("#search").on("click", function (event) {
     event.preventDefault();
     const location = $("#location").val().trim();
     const startDate = $("#startDate").val().trim();
@@ -16,34 +14,39 @@ $("#search").on("click", function (event) {
 
 function getdailyQuakes() {
     $.ajax({ url: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson" })
-        .then(function (response) {
-            lastHourQuakes = collectData(response.features, lastHourQuakes),
-                renderPastHourQuakes(lastHourQuakes.slice(0, 5))
+        .then(function(response) {
+            const lastHourQuakes = collectData(response.features);
+            const event = new CustomEvent('dailyQuakes', {detail: lastHourQuakes});
+            document.dispatchEvent(event);
         });
 }
 
-function collectData(features, array) {
+function collectData(features) {
+    const quakes = [];
+
     for (let i = 0; i < features.length; i++) {
         const element = features[i];
         const place = element.properties.place;
         const coords = element.geometry.coordinates;
         const mag = element.properties.mag;
         const time = moment(element.properties.time).format("LLL");
-        array.push({ place: place, coords: coords, mag: mag, time: time });
+        quakes.push({ place: place, coords: coords, mag: mag, time: time });
     }
 
-    return array;
+    return quakes;
 }
 
-function renderQuakesBySearch(array) {
-    for (let i = 0; i < array.length; i++) {
-        $($("#queryResults").append(createQuakesInfo(array[i], i, "searchQuakesResult", "resultelement")));
+function renderQuakesBySearch(event) {
+    const quakes = event.detail;
+    for (let i = 0; i < quakes.length; i++) {
+        $($("#queryResults").append(createQuakesInfo(quakes[i], i, "searchQuakesResult", "resultelement")));
     }
 }
 
-function renderPastHourQuakes(array) {
-    for (let i = 0; i < array.length; i++) {
-        $($("#latestQs").append(createQuakesInfo(array[i], i, "latestQs", "latestPlace")));
+function renderPastHourQuakes(event) {
+    const quakes = event.detail.slice(0,5);
+    for (let i = 0; i < quakes.length; i++) {
+        $($("#latestQs").append(createQuakesInfo(quakes[i], i, "latestQs", "latestPlace")));
     }
 }
 
@@ -67,14 +70,21 @@ function placeToCordinates(place, startDate, endDate, radius) {
     const apiKey = '9bdca107dee44c8d90c4efabb9b500e4';
     $.ajax({ url: `https://api.opencagedata.com/geocode/v1/json?q=${place}&key=${apiKey}` })
         .then(
-            (response) => dataByLocation(response.results[0].geometry.lat, response.results[0].geometry.lng, quakesBySearch, startDate, endDate, radius)
+            (response) => dataByLocation(
+                response.results[0].geometry.lat,
+                response.results[0].geometry.lng,
+                radius,
+                startDate,
+                endDate
+            )
         );
 }
 
-function dataByLocation(lat, lon, array, startDate, endDate, radius) {
+function dataByLocation(lat, lon, radius, startDate, endDate) {
     $.ajax({ url: `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${startDate}&endtime=${endDate}&longitude=${lon}&latitude=${lat}&maxradiuskm=${radius}` })
-        .then(function (response) {
-            quakesBySearch = collectData(response.features, array),
-                renderQuakesBySearch(quakesBySearch)
+        .then(function(response) {
+            const quakesBySearch = collectData(response.features);
+            const event = new CustomEvent('quakesBySearch', {detail: quakesBySearch});
+            document.dispatchEvent(event);
         });
 }

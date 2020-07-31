@@ -1,3 +1,17 @@
+// line 4-13: data is accessable for kelseyscript.js:
+// 'event.detail' has the object array with the data and has to be passed to the function to be able to acces it.
+// to get the coordinates: event.detail[index].coords, printDailyQuakes() and printQuakesBySearch() are only for display
+document.addEventListener('dailyQuakes', printDailyQuakes, false);
+document.addEventListener('quakesBySearch', printQuakesBySearch, false);
+
+function printDailyQuakes(event) {
+    console.log(event.detail);
+}
+
+function printQuakesBySearch(event) {
+    console.log(event.detail);
+}
+
 var map;
 var infowindow;
 var apiKey = '9bdca107dee44c8d90c4efabb9b500e4';
