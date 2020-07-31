@@ -14,10 +14,10 @@ The requirements to succeed were the following:
 We created an interactive website to help concerned citizens see where earthquakes are happening. 
 As a user, they can see 5 earthquakes that have occurred in the last hour. The user can also see earthquakes in a region that they select, by using the input box. 
 
-We utilized the usgs.gov and google maps api to pull and display earthquake data. 
+We utilized the usgs.gov, the google maps and the opencage geocoding APIs to pull and display earthquake data. 
 
 Matt W. and Joo H. designed the HTML and CSS, allowing for a clean and polished interface. 
-Melinda I. and Kelsey J. created the earthquake, the google maps and the opencage geocoding api integrations that power the website.
+Melinda I. and Kelsey J. created the earthquake, the google maps and the opencage geocoding API integrations that power the website.
 
 In the future, we want to pull earthquakes based off the user's IP address, so we can display the last 5 earthquakes in their area, so that citizens are informed of what's really going on underground.
 
