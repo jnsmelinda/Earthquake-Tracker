@@ -17,9 +17,9 @@ As a user, they can see 5 earthquakes that have occurred in the last hour. The u
 We utilized the usgs.gov and google maps api to pull and display earthquake data. 
 
 Matt W. and Joo H. designed the HTML and CSS, allowing for a clean and polished interface. 
-Melinda I. and Kelsey J. created the earthquake and google maps api that power the website. 
+Melinda I. and Kelsey J. created the earthquake, the google maps and the opencage geocoding api integrations that power the website.
 
-In the future, we want to pull earthquakes based off the user's IP address, so we can display the last 5 earthquakes in their area, so that citizens are informed of what's really going on underground. 
+In the future, we want to pull earthquakes based off the user's IP address, so we can display the last 5 earthquakes in their area, so that citizens are informed of what's really going on underground.
 
 Link to Website: https://kj-labs.github.io/Earthquake_Tracker/
 
