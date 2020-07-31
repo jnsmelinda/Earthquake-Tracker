@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./assets/imgs/favicon.png">
     <title>Shooketh Earthquake Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -23,19 +24,20 @@
             <!-- <h3 class="latestPlace" ></h3> -->
         </div>
     </div>
-    <div class="quakeQuery">
-        <h3>Did you feel that?</h3>
-        <h4>Learn more about earthquakes anywhere in the United States!</h4>
-        <p>Enter a Location</p>
-        <input type="text" id="location" placeholder="Location">
-        <p>When did it happen?</p>
-        <input type="date" id="startDate" placeholder="From">
-        <input type="date" id="endDate" placeholder="To">
-        <p>Enter a perimeter</p>
-        <input type="number" id="radius" placeholder="Radius in km">
-        <button class="button" id="search">Search</button>
-
-        <div id="queryResults"></div>
+    <div class="row quakeQuery">
+        <div class="col s8 m8 offset-s2">
+            <h3>Did you feel that?</h3>
+            <h4>Learn more about earthquakes anywhere in the United States!</h4>
+            <p>Enter a Location</p>
+            <input type="text" id="location" placeholder="Location">
+            <p>When did it happen?</p>
+            <input type="date" id="startDate" placeholder="From">
+            <input type="date" id="endDate" placeholder="To">
+            <p>Enter a perimeter</p>
+            <input type="number" id="radius" placeholder="Radius in km">
+            <button class="button" id="search">Search</button>
+            <div id="queryResults"></div>
+        </div>
     </div>
 
     <div id="map"></div>
@@ -51,12 +53,13 @@
         <div class="u-fixed-width">&copy;2020</div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment-with-locales.min.js"></script>
+    <script src="./assets/js/melindascript.js"></script>
+    <script src="./assets/js/kelseyscript.js"></script>
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjX4meNopLiNIfOqt3YoVAbCGJhM1xP4s&callback=initMap">
+    </script>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment-with-locales.min.js"></script>
-<script src="./assets/js/melindascript.js"></script>
-<script src="./assets/js/kelseyscript.js"></script>
-<script defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjX4meNopLiNIfOqt3YoVAbCGJhM1xP4s&callback=initMap"></script>
 
 </html>
