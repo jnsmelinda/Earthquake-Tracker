@@ -38,10 +38,10 @@ function collectData(features) {
 
 function renderQuakesBySearch(event) {
     const quakes = event.detail;
+    const searchResultsElement = $("#searchResults").html('');
+
     for (let i = 0; i < quakes.length; i++) {
-        $($("#searchResults")
-        .html('')
-        .append(createQuakesInfo(quakes[i], i, "searchQuakesResult", "resultelement")));
+        searchResultsElement.append(createQuakesInfo(quakes[i], i, "searchQuakesResult", "resultelement"));
     }
 }
 
