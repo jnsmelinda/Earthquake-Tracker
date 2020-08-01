@@ -31,12 +31,14 @@ function printDailyQuakes(event) {
         var coords = event.detail[i].coords;
         var text = 'Most Recent Rumbles - Location: ' + event.detail[i].place + ' Magnitude: ' + event.detail[i].mag + '' + ' Date: ' + event.detail[i].time + ' ';
         var latLng = new google.maps.LatLng(coords[1], coords[0]);
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 3,
+            center: new google.maps.LatLng(event.detail[i].coords[1], event.detail[i].coords[0]),
+            mapTypeId: 'terrain'
+        });
         var marker = new google.maps.Marker({
             position: latLng,
             map: map,
-            zoom: 4,
-            center: latLng,
-            mapTypeId: 'terrain',
             icon: pinSymbol("#1AC8DB")
         });
 
@@ -57,6 +59,10 @@ function printQuakesBySearch(event) {
         var coords = event.detail[i].coords;
         var text = 'Searched Rumbles - Location: ' + event.detail[i].place + ' Magnitude: ' + event.detail[i].mag + '' + ' Date: ' + event.detail[i].time + ' ';
         var latLng = new google.maps.LatLng(coords[1], coords[0]);
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 3,
+            center: new google.maps.LatLng(event.detail[i].coords[1], event.detail[i].coords[0]),
+            mapTypeId: 'terrain'});
         var marker = new google.maps.Marker({
             position: latLng,
             map: map,
