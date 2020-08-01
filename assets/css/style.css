@@ -8,7 +8,8 @@ body {
     border: 30px; */
     background-color: rgb(215, 252, 251);
     font-family: 'Lexend Exa', sans-serif;
-    padding: 30px 30px 30px 30px
+    border: 30px solid rgb(219, 134, 134);
+    padding: 30px;
 }
 
 header {
@@ -16,7 +17,7 @@ header {
     background-repeat:no-repeat;
     background-position: top;
     background-color: white;
-    height: 650px;
+    height: 700px;
     width: 100%;
     border: solid rgb(219, 134, 134);
 }
