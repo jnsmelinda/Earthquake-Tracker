@@ -1,14 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Faster+One&family=Rubik+Mono+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Faster+One&family=Lexend+Exa&family=Rubik+Mono+One&display=swap');
 
+body {
+    /* height: 50%;
+    margin: 10px;
+    padding: 5px;
+    border: 30px; */
+    background-color: rgb(215, 252, 251);
+    font-family: 'Lexend Exa', sans-serif;
+    padding-top: 0;
+    padding-right: 20px;
+    padding-left: 20px;
+}
 
-h1 {
+header {
+    background-image: url("/assets/imgs/earthquake.jpg");
+    /* background-color: rgb(215, 252, 251); */
+    height: 500px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: lightgrey;
+}
+
+header h1 {
     text-align: center;
     font:100px 'Faster One', cursive;
-    background-color: rgb(215, 252, 251);
-    padding: 50px;
-    margin: 0;
-    box-shadow: lightgrey;
 }
 
 h2 {
@@ -53,6 +70,7 @@ h4 {
     border: solid rgb(219, 134, 134);
     padding: 5px;
     font-size: 20px;
+    background-color: rgb(215, 252, 251);
 }
 
 .button {
@@ -97,7 +115,7 @@ h4 {
     font-size: 20px;
     /* border-style: solid;
     border-color: rgb(219, 134, 134); */
-    background-color: rgb(215, 252, 251);
+    background-color: white;
     box-sizing: border-box;
 }
 
@@ -115,15 +133,15 @@ h4 {
 }
 /* Map formmatting, feel free to change */
 #map {
-    height: 500px;
-    border: rgb(219,134,134);
-    border-style: solid;
+    height: 600px;
+    border: solid rgb(219,134,134);
 }
 
-html, body {
-    height: 50%;
-    margin: 10px;
-    padding: 5px;
-    border: 30px;
-    font-family: 'Lexend Exa', sans-serif;
+.u-fixed-width {
+    border: solid rgb(219,134,134);
+    background-color: rgb(215, 252, 251);
+    text-align: left;
+    height: 50px;
 }
+
+
