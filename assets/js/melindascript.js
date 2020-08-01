@@ -39,7 +39,9 @@ function collectData(features) {
 function renderQuakesBySearch(event) {
     const quakes = event.detail;
     for (let i = 0; i < quakes.length; i++) {
-        $($("#queryResults").append(createQuakesInfo(quakes[i], i, "searchQuakesResult", "resultelement")));
+        $($("#searchResults")
+        .html('')
+        .append(createQuakesInfo(quakes[i], i, "searchQuakesResult", "resultelement")));
     }
 }
 
@@ -55,24 +57,24 @@ function createQuakesInfo(element, index, id, classe) {
     return $("<p>")
         .attr("id", `${id}-${index}`)
         .addClass(classe)
-            .append(addPlace(element.place))
-            .append(addMag(element.mag.toFixed(2)))
-            .append(addTime(element.time));
+        .append(createDataPoint('Location', element.place))
+        .append(createDataPoint('Magnitude', element.mag.toFixed(2)))
+        .append(createDataPoint('Time', element.time));
 }
 
-function addPlace(place) {
-    return $('<div>')
-        .text(`Location: ${place}`);
+function createDataPoint(label, value) {
+    return $("<span>")
+        .addClass('dataPoint')
+        .append(createLabel(label))
+        .append(': ')
+        .append(value)
+        .append(' ');
 }
 
-function addMag(mag) {
-    return $('<div>')
-        .text(`Magnitudes: ${mag}`);
-}
-
-function addTime(time) {
-    return $('<div>')
-        .text(`Time: ${time}`);
+function createLabel(labelText) {
+    return $('<span>')
+        .addClass('dataLabel')
+        .text(labelText);
 }
 
 function getCoordinates(array) {

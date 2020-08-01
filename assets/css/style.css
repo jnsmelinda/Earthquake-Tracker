@@ -136,3 +136,7 @@ footer {
     height: 50px;
     padding: 20px;
 }
+
+.dataLabel {
+    font-weight: bold;
+}
