@@ -1,7 +1,14 @@
+
 //Gets information from Melindascript, so that it can be passed to the google maps API
 document.addEventListener('dailyQuakes', printDailyQuakes, false);
 document.addEventListener('quakesBySearch', printQuakesBySearch, false);
 
+// This section is to clear the local storage, so that the user can restart.
+document.getElementById("clearButton").addEventListener("click", function () {
+    localStorage.clear();
+    location.reload();
+    console.log('clear_button_working')
+});
 
 //Function is to setup pin colors for each function
 function pinSymbol(color) {
@@ -26,7 +33,7 @@ function printDailyQuakes(event) {
         var marker = new google.maps.Marker({
             position: latLng,
             map: map,
-            icon: pinSymbol('#1AC8DB')
+            icon: pinSymbol("#1AC8DB")
         });
 
         //This adds the marker based on the last five quakes
@@ -49,7 +56,7 @@ function printQuakesBySearch(event) {
         var marker = new google.maps.Marker({
             position: latLng,
             map: map,
-            icon: pinSymbol('#FF424E')
+            icon: pinSymbol("#FF424E")
         });
         //This adds the marker based on the user's search parameters
         marker.addListener('click', (function (marker, text) {
@@ -69,6 +76,7 @@ function initMap() {
         zoom: 4,
         center: new google.maps.LatLng(47.6062, -122.3321),
         mapTypeId: 'terrain'
+
     });
     infowindow = new google.maps.InfoWindow();
 }
