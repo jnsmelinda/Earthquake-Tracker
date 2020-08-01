@@ -11,6 +11,11 @@ $("#search").on("click", function(event) {
     placeToCordinates(location, startDate, endDate, radius);
 });
 
+$("#clearButton").on("click", function(event) {
+    event.preventDefault();
+    location.reload();
+});
+
 function getdailyQuakes() {
     $.ajax({ url: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson" })
         .then(function(response) {
