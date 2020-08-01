@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background-image: url("/assets/imgs/earthquake.jpg");
+    background-image: url(../imgs/earthquake.jpg);
     background-repeat:no-repeat;
     background-position: top;
     background-color: white;
