@@ -3,6 +3,8 @@
 document.addEventListener('dailyQuakes', printDailyQuakes, false);
 document.addEventListener('quakesBySearch', printQuakesBySearch, false);
 
+
+
 // This section is to clear the local storage, so that the user can restart.
 document.getElementById("clearButton").addEventListener("click", function () {
     localStorage.clear();
@@ -26,10 +28,14 @@ function pinSymbol(color) {
 //Map shows data to avoid blank spots, while the user figures out where they want to search.
 function printDailyQuakes(event) {
     for (var i = 0; i < event.detail.length; i++) {
-        console.log(event.detail)
         var coords = event.detail[i].coords;
         var text = 'Most Recent Rumbles - Location: ' + event.detail[i].place + ' Magnitude: ' + event.detail[i].mag + '' + ' Date: ' + event.detail[i].time + ' ';
         var latLng = new google.maps.LatLng(coords[1], coords[0]);
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 3,
+            center: new google.maps.LatLng(event.detail[i].coords[1], event.detail[i].coords[0]),
+            mapTypeId: 'terrain'
+        });
         var marker = new google.maps.Marker({
             position: latLng,
             map: map,
@@ -46,16 +52,23 @@ function printDailyQuakes(event) {
     }
 }
 
+
 //This is to get data for earthquakes that the user searches for rather than just the most recent quakes.
 function printQuakesBySearch(event) {
     for (var i = 0; i < event.detail.length; i++) {
-        console.log(event.detail.length)
         var coords = event.detail[i].coords;
         var text = 'Searched Rumbles - Location: ' + event.detail[i].place + ' Magnitude: ' + event.detail[i].mag + '' + ' Date: ' + event.detail[i].time + ' ';
         var latLng = new google.maps.LatLng(coords[1], coords[0]);
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 3,
+            center: new google.maps.LatLng(event.detail[i].coords[1], event.detail[i].coords[0]),
+            mapTypeId: 'terrain'});
         var marker = new google.maps.Marker({
             position: latLng,
             map: map,
+            zoom: 4,
+            center:  latLng,
+            mapTypeId: 'terrain',
             icon: pinSymbol("#FF424E")
         });
         //This adds the marker based on the user's search parameters
@@ -73,10 +86,9 @@ var map;
 var infowindow;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: new google.maps.LatLng(47.6062, -122.3321),
+        zoom: 3,
+        center: new google.maps.LatLng(41.4925, -99.9018),
         mapTypeId: 'terrain'
-
     });
     infowindow = new google.maps.InfoWindow();
 }
