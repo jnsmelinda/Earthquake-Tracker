@@ -46,7 +46,8 @@ function renderQuakesBySearch(event) {
 function renderPastHourQuakes(event) {
     const quakes = event.detail.slice(0,5);
     for (let i = 0; i < quakes.length; i++) {
-        $($("#latestQs").append(createQuakesInfo(quakes[i], i, "latestQs", "latestPlace")));
+        $($("#latestQs")
+            .append(createQuakesInfo(quakes[i], i, "latestQs", "latest")));
     }
 }
 
@@ -54,7 +55,24 @@ function createQuakesInfo(element, index, id, classe) {
     return $("<p>")
         .attr("id", `${id}-${index}`)
         .addClass(classe)
-        .text(`Place: ${JSON.stringify(element.place)}, Magnitude: ${JSON.stringify(element.mag)}, Time: ${element.time}`);
+            .append(addPlace(element.place))
+            .append(addMag(element.mag.toFixed(2)))
+            .append(addTime(element.time));
+}
+
+function addPlace(place) {
+    return $('<div>')
+        .text(`Location: ${place}`);
+}
+
+function addMag(mag) {
+    return $('<div>')
+        .text(`Magnitudes: ${mag}`);
+}
+
+function addTime(time) {
+    return $('<div>')
+        .text(`Time: ${time}`);
 }
 
 function getCoordinates(array) {
