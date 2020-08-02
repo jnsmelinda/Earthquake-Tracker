@@ -2,10 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Faster+One&family=Lexend+Exa&family=Rubik+Mono+One&display=swap');
 
 body {
-    /* height: 50%;
-    margin: 10px;
-    padding: 5px;
-    border: 30px; */
     background-color: rgb(215, 252, 251);
     font-family: 'Lexend Exa', sans-serif;
     border: 30px solid rgb(219, 134, 134);
@@ -14,6 +10,7 @@ body {
 
 header {
     background-image: url(../imgs/earthquake.jpg);
+    background-size: cover;
     background-repeat:no-repeat;
     background-position: top;
     background-color: white;
@@ -25,16 +22,18 @@ header {
 header h1 {
     text-align: center;
     font:90px 'Faster One', cursive;
+    text-shadow: 3px 3px rgb(219, 134, 134);
 }
 
 h2 {
     text-align: center;
     font-size: 40px;
     line-height: 1px;
-    color:  rgb(121, 158, 157);
     vertical-align: text-top;
     padding: 30px;
     margin-bottom: 20px;
+    font-weight: bold;
+
 }
 
 h3 {
@@ -44,6 +43,9 @@ h3 {
     font-size: xx-large;
     padding: 5px;
     vertical-align: text-top;
+    font-weight: bold;
+    border-bottom: dotted rgb(219, 134, 134);
+
 }
 
 h4 {
@@ -62,6 +64,9 @@ h4 {
     margin-left: 30px;
 }
 
+.queryInstructions {
+    font-size: medium;
+}
 .button {
     position: relative;
     background-color: #b3c0b4;
@@ -102,8 +107,6 @@ h4 {
     text-align: left;
     padding: 20px;
     font-size: 20px;
-    /* border-style: solid;
-    border-color: rgb(219, 134, 134); */
     background-color: whitesmoke;
     box-sizing: border-box;
     border: solid rgb(219, 134, 134);
@@ -112,18 +115,14 @@ h4 {
 
 .latest {
     font-size: 17px;
-    text-align: left;
-    margin-left: 20px;
+    text-align: center;
     padding-bottom: 20px;
 }
 
 .row {
-    display: grid;
-    grid-template-columns: 70% 30%;
-    grid-column-gap: 1em;
+     grid-column-gap: 1em;
     grid-row-gap: 1em;
 }
-/* Map formmatting, feel free to change */
 #map {
     height: 600px;
     border: solid rgb(219,134,134);
@@ -140,4 +139,5 @@ footer {
 
 .dataLabel {
     font-weight: bold;
+    text-decoration: underline;
 }
