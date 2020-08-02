@@ -1,9 +1,8 @@
-//Gets information from Melindascript, so that it can be passed to the google maps API
+//Gets earthquake info from Melindascript, to be used in Google maps API.
 document.addEventListener('dailyQuakes', printDailyQuakes, false);
 document.addEventListener('quakesBySearch', printQuakesBySearch, false);
 
-//This sets the formatting for the map for either function,
-//but centers the map on the US once it loads.
+//This sets map formatting and recenters map to new area once searched.
 var map;
 var infowindow;
 function initMap(lat = 39.8283, lon = -99.5795) {
@@ -14,18 +13,14 @@ function initMap(lat = 39.8283, lon = -99.5795) {
     });
     infowindow = new google.maps.InfoWindow();
 }
-//Variable to put red searched markers into local storage, so it can be cleared when they re-search.
+//Used to remove markers/old searches.
 var gmarkers = [];
-
-// This section is to clear the local storage, so that the user can restart.
 document.getElementById('clearButton').addEventListener("click", function () {
     removeMarker();
-    printDailyQuakes();
+
 });
 
-
-
-//Function is to setup pin data for each function, so then color can be added on.
+//Sets up marker pin info except for color.
 function pinSymbol(color) {
     return {
         path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
@@ -37,22 +32,22 @@ function pinSymbol(color) {
     };
 }
 
-//The below is to place coordinates for the last 5 quakes
-//Map shows data to avoid blank spots, while the user figures out where they want to search.
+//The below is to place coordinates for the last 5 quakes and changes marker color to blue.
 function printDailyQuakes(event) {
     initMap(event.detail[0].coords[1], event.detail[0].coords[0]);
     for (var i = 0; i < 6; i++) {
         var coords = event.detail[i].coords;
         var text = '5 Most Recent Rumbles - Location: ' + event.detail[i].place + ' Magnitude: ' + event.detail[i].mag + '' + ' Date: ' + event.detail[i].time + ' ';
         var latLng = new google.maps.LatLng(coords[1], coords[0]);
+        var tooltip = text;
         var marker = new google.maps.Marker({
             position: latLng,
             map: map,
             zoom: 5,
-            icon: pinSymbol('#1AC8DB')
+            icon: pinSymbol('#1AC8DB'),
+            title: tooltip
         });
         gmarkers.push(marker);
-        //This adds the marker based on the last five quakes
         marker.addListener('click', (function (marker, text) {
             return function (e) {
                 infowindow.setContent(text);
@@ -62,22 +57,23 @@ function printDailyQuakes(event) {
     }
 }
 
-//This is to get data for earthquakes that the user searches for rather than 5 most recent rumbles.
+//This is to get data for earthquakes that the user searches for and changes marker color to red.
 function printQuakesBySearch(event) {
     initMap(event.detail[0].coords[1], event.detail[0].coords[0]);
     for (var i = 0; i < event.detail.length; i++) {
         var coords = event.detail[i].coords;
         var text = 'Searched Rumbles - Location: ' + event.detail[i].place + ' Magnitude: ' + event.detail[i].mag + '' + ' Date: ' + event.detail[i].time + ' ';
+        var tooltip = text;
         var latLng = new google.maps.LatLng(coords[1], coords[0]);
         var marker = new google.maps.Marker({
             position: latLng,
             map: map,
             zoom: 5,
             mapTypeId: 'terrain',
-            icon: pinSymbol('#FF424E')
+            icon: pinSymbol('#FF424E'),
+            title: tooltip
         });
         gmarkers.push(marker);
-        //This adds the marker based on the user's search parameters
         marker.addListener('click', (function (marker, text) {
             return function (e) {
                 infowindow.setContent(text);
@@ -87,8 +83,7 @@ function printQuakesBySearch(event) {
     }
 }
 
-
-//This is to remove the markers for the previously searched city and last 5 rumbles.
+//This is to remove all markers
 function removeMarker() {
     if (gmarkers.length > 0) {
         for (var i = 0; i < gmarkers.length; i++) {
