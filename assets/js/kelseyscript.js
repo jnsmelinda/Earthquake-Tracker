@@ -14,18 +14,18 @@ function initMap(lat = 39.8283, lon = -99.5795) {
     });
     infowindow = new google.maps.InfoWindow();
 }
-//Variable to put red searched markers into local storage, so it can be cleared when they research.
+//Variable to put red searched markers into local storage, so it can be cleared when they re-search.
 var gmarkers = [];
 
 // This section is to clear the local storage, so that the user can restart.
-document.getElementById("clearButton").addEventListener("click", function () {
+document.getElementById('clearButton').addEventListener("click", function () {
     removeMarker();
     printDailyQuakes();
 });
 
 
 
-//Function is to setup pin colors for each function
+//Function is to setup pin data for each function, so then color can be added on.
 function pinSymbol(color) {
     return {
         path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
@@ -41,7 +41,7 @@ function pinSymbol(color) {
 //Map shows data to avoid blank spots, while the user figures out where they want to search.
 function printDailyQuakes(event) {
     initMap(event.detail[0].coords[1], event.detail[0].coords[0]);
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 6; i++) {
         var coords = event.detail[i].coords;
         var text = '5 Most Recent Rumbles - Location: ' + event.detail[i].place + ' Magnitude: ' + event.detail[i].mag + '' + ' Date: ' + event.detail[i].time + ' ';
         var latLng = new google.maps.LatLng(coords[1], coords[0]);
@@ -49,7 +49,7 @@ function printDailyQuakes(event) {
             position: latLng,
             map: map,
             zoom: 5,
-            icon: pinSymbol("#1AC8DB")
+            icon: pinSymbol('#1AC8DB')
         });
         gmarkers.push(marker);
         //This adds the marker based on the last five quakes
@@ -62,8 +62,7 @@ function printDailyQuakes(event) {
     }
 }
 
-//This is to get data for earthquakes that the user searches for rather
-//than just the most recent quakes.
+//This is to get data for earthquakes that the user searches for rather than 5 most recent rumbles.
 function printQuakesBySearch(event) {
     initMap(event.detail[0].coords[1], event.detail[0].coords[0]);
     for (var i = 0; i < event.detail.length; i++) {
@@ -75,7 +74,7 @@ function printQuakesBySearch(event) {
             map: map,
             zoom: 5,
             mapTypeId: 'terrain',
-            icon: pinSymbol("#FF424E")
+            icon: pinSymbol('#FF424E')
         });
         gmarkers.push(marker);
         //This adds the marker based on the user's search parameters
