@@ -1,4 +1,3 @@
-
 //Gets information from Melindascript, so that it can be passed to the google maps API
 document.addEventListener('dailyQuakes', printDailyQuakes, false);
 document.addEventListener('quakesBySearch', printQuakesBySearch, false);
@@ -23,10 +22,7 @@ document.getElementById("clearButton").addEventListener("click", function () {
     removeMarker();
 });
 
-// This section is to clear the last searched city markers, so user only sees the new city.
-document.getElementById("search").addEventListener("click", function () {
-    removeMarker();
-});
+
 
 //Function is to setup pin colors for each function
 function pinSymbol(color) {
