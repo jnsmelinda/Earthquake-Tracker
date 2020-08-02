@@ -40,18 +40,27 @@ h3 {
     text-transform: uppercase;
     text-align: center;
     box-shadow: lightgrey;
-    font-size: xx-large;
-    padding: 5px;
+    font-size: x-large;
+    padding: 1rem;
     vertical-align: text-top;
     font-weight: bold;
     border-bottom: dotted rgb(219, 134, 134);
+    margin: 1rem 0 1rem 0;
 
 }
 
 h4 {
     text-align: center;
-    margin-bottom: 80px;
-    font: xx-large;
+    margin: 1rem 0 1rem 0;
+    font-size: large;
+}
+
+p {
+    margin-bottom: 2px;
+}
+
+em {
+    font-size: medium;
 }
 
 .lastFive {
@@ -103,15 +112,20 @@ h4 {
     transition: 0s
 }
 
-.quakeQuery {
+.quakeQuery, .quakeResults {
     text-align: left;
     padding: 20px;
     font-size: 20px;
     background-color: whitesmoke;
     box-sizing: border-box;
     border: solid rgb(219, 134, 134);
+    height: 650px;
+    margin: 0 0 0.75rem 0;
 }
 
+.quakeResults {
+    height: auto;
+}
 
 .latest {
     font-size: 17px;
@@ -120,12 +134,14 @@ h4 {
 }
 
 .row {
-     grid-column-gap: 1em;
+    grid-column-gap: 1em;
     grid-row-gap: 1em;
 }
+
 #map {
-    height: 600px;
+    height: 650px;
     border: solid rgb(219,134,134);
+    width: 100%;
 }
 
 footer {
