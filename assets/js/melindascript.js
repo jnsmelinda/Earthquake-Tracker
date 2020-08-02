@@ -1,7 +1,10 @@
+// dailyquakes when the the page loads.
 $(document).ready(getdailyQuakes);
+// adding eventlistener to functions in order to be able to call the results from kelseyscript.js
 document.addEventListener('dailyQuakes', renderPastHourQuakes, false);
 document.addEventListener('quakesBySearch', renderQuakesBySearch, false);
 
+// click event registered to take the content of input field and pass it to query with that criteria
 $('#search').on('click', function(event) {
     event.preventDefault();
     const location = $('#location').val().trim();
@@ -11,6 +14,7 @@ $('#search').on('click', function(event) {
     placeToCordinates(location, startDate, endDate, radius);
 });
 
+// calling the usgs earthquake api to get past hour quakes
 function getdailyQuakes() {
     $.ajax({url: 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson'})
         .then(
@@ -23,11 +27,13 @@ function getdailyQuakes() {
         );
 }
 
+// handling past hour quake errors and displying o the screen and console-logging details
 function errorHandlingOfLatestQuakes(response, status) {
     console.log(`Request failed. Returned status: ${status}, response: ${JSON.stringify(response)}`);
     $('#errorOfLatestQuakes').html('Sorry, no results for that search.');
 }
 
+// extracting the data of quakes for further use
 function collectData(features) {
     const quakes = [];
 
@@ -47,6 +53,7 @@ function collectData(features) {
     return quakes;
 }
 
+// rendering quakes by search and appending it to the html tag
 function renderQuakesBySearch(event) {
     const quakes = event.detail;
     for (let i = 0; i < quakes.length; i++) {
@@ -54,6 +61,7 @@ function renderQuakesBySearch(event) {
     }
 }
 
+// rendering last five of the past hour quakes and appending it to the html tag
 function renderPastHourQuakes(event) {
     const quakes = event.detail.slice(0, 5);
     for (let i = 0; i < quakes.length; i++) {
@@ -62,6 +70,7 @@ function renderPastHourQuakes(event) {
     }
 }
 
+// creating html element and adding appropriate class and attributes
 function createQuakesInfo(element, index, id, classe) {
     return $('<p>')
         .attr('id', `${id}-${index}`)
@@ -71,6 +80,7 @@ function createQuakesInfo(element, index, id, classe) {
         .append(createDataPoint('Time', element.time));
 }
 
+// creating datapoint element and appending details accordingly and appeding it to the html
 function createDataPoint(label, value) {
     return $('<span>')
         .addClass('dataPoint')
@@ -80,12 +90,14 @@ function createDataPoint(label, value) {
         .append(' ');
 }
 
+// creating class tag of datapoint
 function createLabel(labelText) {
     return $('<span>')
         .addClass('dataLabel')
         .text(labelText);
 }
 
+// convereting string input of location to coordinates by calling opencagedata geocoding api
 function placeToCordinates(place, startDate, endDate, radius) {
     const apiKey = '9bdca107dee44c8d90c4efabb9b500e4';
 
@@ -98,6 +110,7 @@ function placeToCordinates(place, startDate, endDate, radius) {
         );
 }
 
+// passing querydata to methods if the response is not empty
 function handleCoordinates(response, startDate, endDate, radius) {
     if (response.results.length === 0) {
         $('#searchErrors').text('Sorry, no location has been found.');
@@ -112,13 +125,16 @@ function handleCoordinates(response, startDate, endDate, radius) {
     );
 }
 
+// handling error of response from opencagedata api call
 function errorHandlingOfCoordinates(response, status) {
     console.log(`Request failed. Returned status: ${status}, response: ${JSON.stringify(response)}`);
     $('#searchErrors').text('Unable to search for quakes');
 }
 
+// querying for earthquakes based on input parameters calling usgs earthquake api with parameters
+// lat, lon, radius(km), start date, end date
 function dataByLocation(lat, lon, radius, startDate, endDate) {
-    $.ajax({url: `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${startDate}&endtime=${endDate}&longitude=${lon}&latitude=${lat}&maxradiuskm=${radius}`})
+    $.ajax({url: `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${startDate}&endtime=${endDate}&longitude=${lon}&latitude=${lat}&maxradiuskm=${radius}` })
         .then(
             function(response) {
                 const quakesBySearch = collectData(response.features);
@@ -129,6 +145,7 @@ function dataByLocation(lat, lon, radius, startDate, endDate) {
         );
 }
 
+// handling response error when calling usgs api by input query parameters
 function errorHandlingOfQuery(response, status) {
     console.log(`Request failed. Returned status: ${status}, response: ${JSON.stringify(response)}`);
     $($('#searchResults')
