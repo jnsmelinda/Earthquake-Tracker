@@ -31,11 +31,6 @@ function printDailyQuakes(event) {
         var coords = event.detail[i].coords;
         var text = 'Most Recent Rumbles - Location: ' + event.detail[i].place + ' Magnitude: ' + event.detail[i].mag + '' + ' Date: ' + event.detail[i].time + ' ';
         var latLng = new google.maps.LatLng(coords[1], coords[0]);
-        map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 3,
-            center: new google.maps.LatLng(event.detail[i].coords[1], event.detail[i].coords[0]),
-            mapTypeId: 'terrain'
-        });
         var marker = new google.maps.Marker({
             position: latLng,
             map: map,
@@ -59,10 +54,6 @@ function printQuakesBySearch(event) {
         var coords = event.detail[i].coords;
         var text = 'Searched Rumbles - Location: ' + event.detail[i].place + ' Magnitude: ' + event.detail[i].mag + '' + ' Date: ' + event.detail[i].time + ' ';
         var latLng = new google.maps.LatLng(coords[1], coords[0]);
-        map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 3,
-            center: new google.maps.LatLng(event.detail[i].coords[1], event.detail[i].coords[0]),
-            mapTypeId: 'terrain'});
         var marker = new google.maps.Marker({
             position: latLng,
             map: map,
@@ -81,13 +72,13 @@ function printQuakesBySearch(event) {
     }
 }
 
-//This sets the formatting for the map for either function, but centers the map on Seattle.
+//This sets the formatting for the map for either function, but centers the map on the US once it loads.
 var map;
 var infowindow;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 3,
-        center: new google.maps.LatLng(41.4925, -99.9018),
+        zoom: 4.5,
+        center: new google.maps.LatLng(39.8283, -98.5795),
         mapTypeId: 'terrain'
     });
     infowindow = new google.maps.InfoWindow();
