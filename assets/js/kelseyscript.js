@@ -77,8 +77,8 @@ var map;
 var infowindow;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4.5,
-        center: new google.maps.LatLng(39.8283, -98.5795),
+        zoom: 3.6,
+        center: new google.maps.LatLng(39.8283, -99.5795),
         mapTypeId: 'terrain'
     });
     infowindow = new google.maps.InfoWindow();
