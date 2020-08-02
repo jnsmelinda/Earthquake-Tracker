@@ -20,6 +20,7 @@ var gmarkers = [];
 // This section is to clear the local storage, so that the user can restart.
 document.getElementById("clearButton").addEventListener("click", function () {
     removeMarker();
+    printDailyQuakes();
 });
 
 
@@ -36,13 +37,13 @@ function pinSymbol(color) {
     };
 }
 
-//The below is to place coordinates for the quakes that occurred within the last hour
+//The below is to place coordinates for the last 5 quakes
 //Map shows data to avoid blank spots, while the user figures out where they want to search.
 function printDailyQuakes(event) {
     initMap(event.detail[0].coords[1], event.detail[0].coords[0]);
-    for (var i = 0; i < event.detail.length; i++) {
+    for (var i = 0; i < 5; i++) {
         var coords = event.detail[i].coords;
-        var text = 'Most Recent Rumbles - Location: ' + event.detail[i].place + ' Magnitude: ' + event.detail[i].mag + '' + ' Date: ' + event.detail[i].time + ' ';
+        var text = '5 Most Recent Rumbles - Location: ' + event.detail[i].place + ' Magnitude: ' + event.detail[i].mag + '' + ' Date: ' + event.detail[i].time + ' ';
         var latLng = new google.maps.LatLng(coords[1], coords[0]);
         var marker = new google.maps.Marker({
             position: latLng,
