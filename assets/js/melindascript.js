@@ -12,7 +12,7 @@ $('#search').on('click', function(event) {
 });
 
 function getdailyQuakes() {
-    $.ajax({ url: 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson' })
+    $.ajax({url: 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson'})
         .then(
             function(response) {
                 const lastHourQuakes = collectData(response.features);
@@ -24,7 +24,7 @@ function getdailyQuakes() {
 }
 
 function errorHandlingOfLatestQuakes(response, status) {
-    console.log(`Request failed. Returned status: ${status}, response: ${JSON.stringify(response)}`)
+    console.log(`Request failed. Returned status: ${status}, response: ${JSON.stringify(response)}`);
     $('#errorOfLatestQuakes').html('Sorry, no results for that search.');
 }
 
@@ -41,7 +41,7 @@ function collectData(features) {
         const coords = element.geometry.coordinates;
         const mag = element.properties.mag;
         const time = moment(element.properties.time).format('LLL');
-        quakes.push({ place: place, coords: coords, mag: mag, time: time });
+        quakes.push({place: place, coords: coords, mag: mag, time: time});
     }
 
     return quakes;
@@ -86,21 +86,12 @@ function createLabel(labelText) {
         .text(labelText);
 }
 
-function getCoordinates(array) {
-    coords = [];
-    for (let i = 0; i < array.length; i++) {
-        coords.push(array[i].coords);
-    }
-
-    return coords;
-}
-
 function placeToCordinates(place, startDate, endDate, radius) {
     const apiKey = '9bdca107dee44c8d90c4efabb9b500e4';
 
     $('#searchResults').html('');
     $('#searchErrors').html('');
-    $.ajax({ url: `https://api.opencagedata.com/geocode/v1/json?q=${place}&key=${apiKey}` })
+    $.ajax({url: `https://api.opencagedata.com/geocode/v1/json?q=${place}&key=${apiKey}`})
         .then(
             (response) => handleCoordinates(response, startDate, endDate, radius),
             (response, status) => errorHandlingOfCoordinates(response, status)
@@ -127,7 +118,7 @@ function errorHandlingOfCoordinates(response, status) {
 }
 
 function dataByLocation(lat, lon, radius, startDate, endDate) {
-    $.ajax({ url: `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${startDate}&endtime=${endDate}&longitude=${lon}&latitude=${lat}&maxradiuskm=${radius}` })
+    $.ajax({url: `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${startDate}&endtime=${endDate}&longitude=${lon}&latitude=${lat}&maxradiuskm=${radius}`})
         .then(
             function(response) {
                 const quakesBySearch = collectData(response.features);
@@ -139,7 +130,7 @@ function dataByLocation(lat, lon, radius, startDate, endDate) {
 }
 
 function errorHandlingOfQuery(response, status) {
-    console.log(`Request failed. Returned status: ${status}, response: ${JSON.stringify(response)}`)
+    console.log(`Request failed. Returned status: ${status}, response: ${JSON.stringify(response)}`);
     $($('#searchResults')
         .prepend($('<div>')
             .text('Sorry, no results for that search. Please click on Start Over and try again.')));
