@@ -31,6 +31,10 @@ function errorHandlingOfLatestQuakes(response, status) {
 function collectData(features) {
     const quakes = [];
 
+    if (features.length === 0) {
+        $("#searchErrors").text("Sorry, no quakes for this search.");
+    }
+
     for (let i = 0; i < features.length; i++) {
         const element = features[i];
         const place = element.properties.place;
@@ -105,7 +109,7 @@ function placeToCordinates(place, startDate, endDate, radius) {
 
 function handleCoordinates(response, startDate, endDate, radius) {
     if (response.results.length === 0) {
-        $("#searchErrors").text("Sorry, no results for that search.");
+        $("#searchErrors").text("Sorry, no location has been found.");
     }
 
     return dataByLocation(
