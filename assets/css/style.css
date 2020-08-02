@@ -12,21 +12,25 @@ body {
 
 /* Image Source: https://pixabay.com/photos/earthquake-seismograph-seismic-wave-3167693/  */
 header {
-    background-image: url(../imgs/earthquake.jpg);
-    background-size: cover;
-    background-repeat:no-repeat;
-    background-position: top;
-    background-color: white;
-    height: 700px;
     width: 100%;
     border: solid rgb(219, 134, 134);
+    position: relative;
 }
 
 /* Shooketh to the Core */
 header h1 {
     text-align: center;
-    font:90px 'Faster One', cursive;
+    font:8vw 'Faster One', cursive;
     text-shadow: 3px 3px rgb(219, 134, 134);
+    position: absolute;
+    z-index: 1;
+}
+
+img {
+    height: auto;
+    width: 100%;
+    opacity: 0.5;
+    z-index: -1;
 }
 
 /* 5 Most Recent Rumbles */
