@@ -31,6 +31,7 @@ In the future, we want to pull earthquakes based off the user's searched magnitu
 Link to Website: https://kj-labs.github.io/Earthquake_Tracker/
 
 Link to Teammates Githubs: 
+
 Matt: https://github.com/wilbur125
 
 Joo: https://github.com/djjoo007
@@ -39,6 +40,8 @@ Melinda:https://github.com/jnsmelinda
 
 Kelsey: https://github.com/KJ-Labs
 
-Screenshots:![Presentation Picture](https://github.com/KJ-Labs/Earthquake_Tracker/blob/master/presentationpicture.png "Presentation Picture")
+Screenshots:![website Screenshots](https://github.com/KJ-Labs/Earthquake_Tracker/tree/master/assets/imgs/screenshots.PNG "website Screenshots")
 
-Screenshots:![website Screenshots](https://github.com/KJ-Labs/Earthquake_Tracker/blob/master/screenshots.PNG "website Screenshots")
+Presentation PDF:![Presentation Picture](https://github.com/KJ-Labs/Earthquake_Tracker/tree/master/assets/imgs/presentationpicture.png "Presentation Picture")
+
+
