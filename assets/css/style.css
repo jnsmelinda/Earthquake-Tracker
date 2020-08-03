@@ -13,24 +13,22 @@ body {
 /* Image Source: https://pixabay.com/photos/earthquake-seismograph-seismic-wave-3167693/  */
 header {
     width: 100%;
-    border: solid rgb(219, 134, 134);
-    position: relative;
 }
 
 /* Shooketh to the Core */
 header h1 {
     text-align: center;
-    font: xx-large 'Faster One', cursive;
+    font-family: 'Faster One', cursive;
     text-shadow: 3px 3px rgb(219, 134, 134);
-    position: absolute;
-    z-index: 1;
 }
 
 header img {
+    border: solid rgb(219, 134, 134);
     height: auto;
-    width: 100%;
-    opacity: 0.5;
-    z-index: -1;
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* 5 Most Recent Rumbles */
@@ -158,7 +156,7 @@ em {
 
 /* Results from Google Map API */
 #map {
-    height: 650px;
+    height: 574px;
     border: solid rgb(219,134,134);
     width: 100%;
 }
@@ -178,3 +176,8 @@ footer {
     font-weight: bold;
     text-decoration: underline;
 }
+@media only screen and (max-width: 450px) {
+    header h1 {
+      font-size: xx-large;
+    }
+  }
