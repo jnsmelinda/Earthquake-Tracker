@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An earthquake website to help users know what is happening underneath their cities.">
+    <meta name="keywords" content="Earthquake, Maps, API">
     <link rel="icon" href="./assets/imgs/favicon.png">
     <title>Shooketh Earthquake Tracker</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -11,63 +13,67 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="grid-example col">
-            <header>
+    <main class="container">
+        <header class="grid-example col">
                 <h1>
                     Shooketh to the Core
                 </h1>
                 <img src="assets/imgs/earthquake.jpg" alt="seismic radar and the planet Earth side by side">
-            </header>
-        </div>
-        <!-- This is where the last 5 events will display -->
-        <div class="col s12 m12 l8">
-            <div class="lastFive">
-                <h2>5 Most Recent Rumbles</h2>
-                <!-- Put the most recent quake here. The API will provide place, time, and magnitude and append the next most recent for five events total -->
-                <div class="latest" id="latestQs">
-                    <!-- <h3 class="latestPlace" ></h3> -->
-                </div>
-                <div id="errorOfLatestQuakes"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m12 l6 quakeQuery">
-                <h3>Did you feel that?</h3>
-                <h4>Learn more about earthquakes that happened ANYWHERE!</h4>
-                <p>Enter a Location</p>
-                <input type="text" id="location" placeholder="City, State/Province">
-                <p>When did it happen?</p>
-                <em>Start Date</em>
-                <input type="date" id="startDate">
-                <em>End Date</em>
-                <input type="date" id="endDate">
-                <p>Enter a search Radius</p>
-                <input type="number" id="radius" placeholder="Radius in km">
-                <div class="row">
-                    <button class="button col s4 push-s1" id="search">Search</button>
-                    <button class="button col s4 push-s3" id="clearButton">Start Over</button>
+        </header>
+        <!-- This is where the last five earthquakes will display -->
+        <section>
+            <div class="col s12 m12 l8">
+                <div class="lastFive">
+                    <h2>5 Most Recent Rumbles</h2>
+                    <!-- Put the most recent quake here. The API will provide place, time, and magnitude and append the next most recent for five events total -->
+                    <div class="latest" id="latestQs">
+                        <!-- <h3 class="latestPlace" ></h3> -->
+                    </div>
+                    <div id="errorOfLatestQuakes"></div>
                 </div>
             </div>
-            <div class="mapDiv col s12 m12 l6">
-                <div id="map"></div>
+        </section>
+        <!-- Users can look-up past earthquakes by entering Location, Start & End Dates, and a Radius. If there was an earthquake, it will appear on the map and be listed below map.-->
+        <section>
+            <div class="row">
+                <div class="col s12 m12 l6 quakeQuery">
+                    <h3>Did you feel that?</h3>
+                    <h4>Learn more about earthquakes that happened ANYWHERE!</h4>
+                    <p>Enter a Location</p>
+                    <input type="text" id="location" placeholder="City, State/Province">
+                    <p>When did it happen?</p>
+                    <em>Start Date</em>
+                    <input type="date" id="startDate">
+                    <em>End Date</em>
+                    <input type="date" id="endDate">
+                    <p>Enter a search Radius</p>
+                    <input type="number" id="radius" placeholder="Radius in km">
+                    <div class="row">
+                        <button class="button col s4 push-s1" id="search">Search</button>
+                        <button class="button col s4 push-s3" id="clearButton">Start Over</button>
+                    </div>
+                </div>
+                <div class="mapDiv col s12 m12 l6">
+                    <div id="map"></div>
+                </div>
             </div>
-        </div>
-        <div class="row quakeResults" id="queryResults">
-            <h3>Results</h3>
-            <div id="searchResults"></div>
-            <div id="searchErrors"></div>
-        </div>
-            <br>
+            <div class="row quakeResults" id="queryResults">
+                <h3>Results</h3>
+                <div id="searchResults"></div>
+                <div id="searchErrors"></div>
+            </div>
+        </section>
         <footer>
-            <div class="u-fixed-width">&copy;2020</div>
+            <div class="u-fixed-width">&copy;2020 Joo, Kelsey, Matt, & Melinda</div>
         </footer>
-    </div>
+
+    </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment-with-locales.min.js"></script>
     <script src="./assets/js/melindascript.js"></script>
     <script src="./assets/js/kelseyscript.js"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjX4meNopLiNIfOqt3YoVAbCGJhM1xP4s&callback=initMap"></script>
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjX4meNopLiNIfOqt3YoVAbCGJhM1xP4s&callback=initMap"></script>
 </body>
 
 </html>
