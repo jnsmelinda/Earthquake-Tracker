@@ -65,8 +65,8 @@ function renderQuakesBySearch(event) {
 function renderPastHourQuakes(event) {
     const quakes = event.detail.slice(0, 5);
     for (let i = 0; i < quakes.length; i++) {
-        $($('#latestQs')
-            .append(createQuakesInfo(quakes[i], i, 'latestQs', 'latest')));
+        $('#latestQs')
+            .append(createQuakesInfo(quakes[i], i, 'latestQs', 'latest'));
     }
 }
 
@@ -148,7 +148,7 @@ function dataByLocation(lat, lon, radius, startDate, endDate) {
 // handling response error when calling usgs api by input query parameters
 function errorHandlingOfQuery(response, status) {
     console.log(`Request failed. Returned status: ${status}, response: ${JSON.stringify(response)}`);
-    $($('#searchResults')
+    $('#searchResults')
         .prepend($('<div>')
-            .text('Sorry, no results for that search. Please click on Start Over and try again.')));
+            .text('Sorry, no results for that search. Please click on Start Over and try again.'));
 }
