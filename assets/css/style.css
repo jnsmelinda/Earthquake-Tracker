@@ -20,7 +20,7 @@ header {
 /* Shooketh to the Core */
 header h1 {
     text-align: center;
-    font:8vw 'Faster One', cursive;
+    font: xx-large 'Faster One', cursive;
     text-shadow: 3px 3px rgb(219, 134, 134);
     position: absolute;
     z-index: 1;
@@ -36,11 +36,10 @@ header img {
 /* 5 Most Recent Rumbles */
 h2 {
     text-align: center;
-    font-size: 40px;
-    line-height: 1px;
+    font-size: x-large;
     vertical-align: text-top;
-    padding: 30px;
-    margin-bottom: 20px;
+    padding: 10px;
+    margin-bottom: 5px;
     font-weight: bold;
 }
 
@@ -49,7 +48,7 @@ h3 {
     text-transform: uppercase;
     text-align: center;
     box-shadow: lightgrey;
-    font-size: x-large;
+    font-size: large;
     padding: 1rem;
     vertical-align: text-top;
     font-weight: bold;
@@ -78,12 +77,11 @@ em {
 /* Most Recent Rumbles Styling*/
 .lastFive {
     text-align: center;
-    font-size: x-large;
+    font-size: 1rem;
     text-shadow: 2px 2px 7px lightgrey;
     padding: 5px;
-    font-size: 30px;
+    font-size: 1rem;
     background-color: rgb(215, 252, 251);
-    margin-left: 30px;
 }
 
 /* Query Instructions styling */
@@ -96,7 +94,7 @@ em {
     position: relative;
     background-color: #b3c0b4;
     border: none;
-    font-size: 18px;
+    font-size: 1rem;
     color: rgb(242, 254, 254);
     padding: 1px;
     width: 100px;
@@ -129,13 +127,14 @@ em {
 }
 
 .quakeQuery, .quakeResults {
-    text-align: left;
+    text-align: center;
     padding: 20px;
-    font-size: 20px;
+    font-size: 1rem;
     background-color: whitesmoke;
     box-sizing: border-box;
     border: solid rgb(219, 134, 134);
-    height: 650px;
+    height: auto;
+    width: 100%;
     margin: 0 0 0.75rem 0;
 }
 
@@ -148,7 +147,7 @@ em {
 .latest {
     font-size: 17px;
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 /* Search, Start Over Button Spacing */
