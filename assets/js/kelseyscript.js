@@ -19,6 +19,8 @@ document.getElementById('clearButton').addEventListener("click", function () {
     removeMarker();
     $('#searchResults').html('');
     $('#searchErrors').html('');
+    localStorage.clear();
+    location.reload();
 
 });
 
