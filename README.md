@@ -41,4 +41,4 @@ Kelsey: https://github.com/KJ-Labs
 
 Screenshots:![Presentation Picture](https://github.com/KJ-Labs/Earthquake_Tracker/blob/master/presentationpicture.png "Presentation Picture")
 
-Screenshots:![website Screenshots](https://github.com/KJ-Labs/Earthquake_Tracker/blob/master/websitescreenshots.png "website Screenshots")
+Screenshots:![website Screenshots](https://github.com/KJ-Labs/Earthquake_Tracker/blob/master/screenshots.PNG "website Screenshots")
