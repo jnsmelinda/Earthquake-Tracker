@@ -105,7 +105,7 @@ em {
 }
 
 .button:after {
-    content: "";
+    content: '';
     background: #f1f1f1;
     display: block;
     position: absolute;

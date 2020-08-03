@@ -15,7 +15,7 @@ function initMap(lat = 39.8283, lon = -99.5795) {
 }
 //Used to remove markers/old searches.
 var gmarkers = [];
-document.getElementById('clearButton').addEventListener("click", function () {
+document.getElementById('clearButton').addEventListener('click', function () {
     removeMarker();
     $('#searchResults').html('');
     $('#searchErrors').html('');
