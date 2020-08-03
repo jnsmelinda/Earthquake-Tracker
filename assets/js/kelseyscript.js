@@ -22,7 +22,6 @@ document.getElementById('clearButton').addEventListener("click", function () {
     localStorage.clear();
     location.reload();
 
-
 });
 
 //Sets up marker pin info except for color.
