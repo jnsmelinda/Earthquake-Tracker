@@ -28,7 +28,7 @@ Melinda I. and Kelsey J. created the earthquake, the google maps and the opencag
 
 In the future, we want to pull earthquakes based off the user's searched magnitude, so that citizens are informed of what's really going on underground.
 
-Link to Website: https://kj-labs.github.io/Earthquake_Tracker/
+Deployed application: https://jnsmelinda.github.io/Earthquake_Tracker/
 
 Link to Teammates Githubs: 
 
