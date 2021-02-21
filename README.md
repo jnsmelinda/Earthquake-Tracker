@@ -40,7 +40,7 @@ Melinda:https://github.com/jnsmelinda
 
 Kelsey: https://github.com/KJ-Labs
 
-Screenshots:![website Screenshots](https://github.com/KJ-Labs/Earthquake_Tracker/blob/master/assets/imgs/screenshots.PNG "website Screenshots")
+Screenshots:![website Screenshots](assets/imgs/screenshots.PNG "website Screenshots")
 
 Presentation PDF:![Presentation Picture](https://github.com/KJ-Labs/Earthquake_Tracker/blob/master/assets/imgs/presentationpicture.png "Presentation Picture")
 
